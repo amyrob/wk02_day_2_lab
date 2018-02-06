@@ -5,9 +5,13 @@ require_relative ("../person")
 
 class BusStopTest < MiniTest::Test
   def setup
-    @passenger = Person.new("Betty", 84)
+    @passenger1 = Person.new("Betty", 84)
     @busstop = BusStop.new("Edinburgh")
   end
 
+def test_add_person_to_queue()
+  @busstop.add_to_queue(@passenger1)
+  assert_equal(1, @busstop.queue().count)
+end
 
 end
